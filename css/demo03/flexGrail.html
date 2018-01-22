@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+            width: 100%;
+            height: 200px;
+            display: flex;
+        }
+        .left{
+            order: 0;
+            flex: 0 1 200px;
+            background-color: linen;
+        }
+        .right{
+            order:2;
+            flex: 0 1 200px;
+            background-color: lightcoral;
+        }
+        .content{
+            order: 1;
+            flex: 0 1 100%;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="content">content</div>
+    <aside class="left">left</aside>
+    <aside class="right">right</aside>
+</div>
+
+</body>
+</html>
