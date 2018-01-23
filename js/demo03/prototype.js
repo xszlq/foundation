@@ -29,6 +29,7 @@ A.prototype.getSex = function () {
 
 var ins1 = new A();
 
+// ins1找到setName的过程就是访问原型链的过程
 ins1.setName("lqg");
 
 console.log(ins1.getName());
