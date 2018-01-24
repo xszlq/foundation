@@ -1,7 +1,7 @@
 react目录
 ## 谈谈对React框架的一个思考
 主要从这个框架的定位和优缺点来说吧。
-首先这个框架只是解决了MVC架构上的V，所以如果要用好这个框架，要么引入第三方库，要么自己封装解决M的问题。而组件的状态就可以理解为M层的数据模型。
+首先这个框架只是解决了MVC架构上的V，所以如果要用好这个框架，要么引入第三方库，要么自己封装解决M的问题。而组件的状态就可以理解为M层的数据模型。  
 React有虚拟Dom，而且采用了Diff算法，通过与上次的虚拟DOM比较做到只渲染改变的部分，所以在性能上还是很好的，比传统的MVC框架全部渲染好很多。组件模式，利于代码的复用。
 ## React组件生命周期
 componentWillMount、componentDidMount、componentWillUpdate、componentDidUpdate、componentWillReceiveProps、componentWillUnmount
