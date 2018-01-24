@@ -23,6 +23,17 @@ demo中主要写了一个常见使用，及用闭包模拟私有方法和变量�
 上面这些方法都返回最新数组的长度。
 不改原数组的方法：forEach、map、concat（合并数组，并返回一个新的数组）、slice（截取数组片段）、reduce、join、indexOf、sort  
 其中concat和slice可以实现数组的浅拷贝，深拷贝一般借助第三方库实现
-### Es6数组扩展
+### Es6数组扩展(es6.js主要写展开运算符的运用)
 Es6 Array 原型上新增includes、find、findIndex、fill（会改变原数组）方法，Array对象上新增from（将一个类数组转换成一个数组）、of方法   
 扩展运算符
+这个语法可以替代函数的apply方法。
+复制数组
+
+## demo05 String
+### Es5常用方法
+不改变string的方法：slice、substring、indexOf、replace、match、trim、toUpperCase、toLowerCase
+
+### Es6 String 扩展
+原型新增includes、startsWith、endsWith、repeat方法
+
+
