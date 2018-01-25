@@ -37,3 +37,16 @@ Es6 Array 原型上新增includes、find、findIndex、fill（会改变原数组
 原型新增includes、startsWith、endsWith、repeat方法
 
 
+## demo07 promise
+promise主要解决传统异步回调地狱的问题。主要用在ajax请求，setTimeout，弹框。
+主要的知识点有
+- Promise.prototype.then()
+- Promise.prototype.catch()
+- Promise.all()
+- Promise.race()
+- Promise.resolve()
+- Promise.reject()
+
+## demo08 Symbol
+新的数据类型，主要解决es5对象属性名都是字符串，容易被覆盖的问题。表示独一无二的值。
+
