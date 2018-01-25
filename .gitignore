@@ -1,2 +1,6 @@
+dist/
+bower_components/
 node_modules/
+.git
 .idea
+.tmp/
