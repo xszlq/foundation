@@ -20,7 +20,8 @@ demo中主要写了一个常见使用，及用闭包模拟私有方法和变量�
 ## demo05 Array
 ### Es5常用方法 
 改变数组的有：push（尾部插入，可以同时插入多个元素）、pop（删除数组的最后一个元素）、unshift（在数组开头插入一个或多个元素）、shift（删除第一个元素）、splice（在指定位置删除或者插入元素）；  
-上面这些方法都返回最新数组的长度。
+上面这些方法都返回最新数组的长度。  
+遍历的方法： forEach、map、for of  
 不改原数组的方法：forEach、map、concat（合并数组，并返回一个新的数组）、slice（截取数组片段）、reduce、join、indexOf、sort  
 其中concat和slice可以实现数组的浅拷贝，深拷贝一般借助第三方库实现
 ### Es6数组扩展(es6.js主要写展开运算符的运用)
@@ -37,7 +38,8 @@ Es6 Array 原型上新增includes、find、findIndex、fill（会改变原数组
 原型新增includes、startsWith、endsWith、repeat方法
 
 
-## demo07 promise
+## demo07 异步解决方案
+### promise
 promise主要解决传统异步回调地狱的问题。主要用在ajax请求，setTimeout，弹框。
 主要的知识点有
 - Promise.prototype.then()
@@ -46,6 +48,13 @@ promise主要解决传统异步回调地狱的问题。主要用在ajax请求，
 - Promise.race()
 - Promise.resolve()
 - Promise.reject()
+
+### async
+async的引入主要是为了异步操作更加方便。
+主要知识点：
+- 基本使用(async、await函数的使用)
+- async函数返回对象
+- 多个async函数的处理方式
 
 ## demo08 Symbol
 新的数据类型，主要解决es5对象属性名都是字符串，容易被覆盖的问题。表示独一无二的值。
