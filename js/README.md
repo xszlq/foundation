@@ -53,9 +53,19 @@ promise主要解决传统异步回调地狱的问题。主要用在ajax请求，
 async的引入主要是为了异步操作更加方便。
 主要知识点：
 - 基本使用(async、await函数的使用)
-- async函数返回对象
-- 多个async函数的处理方式
+- 通过async方法重写 promise 链
+- 多个await函数的处理方式
+- await函数只能用在async函数中，不能用在普通函数（async中嵌套的函数也不行）
 
 ## demo08 Symbol
 新的数据类型，主要解决es5对象属性名都是字符串，容易被覆盖的问题。表示独一无二的值。
+主要知识点：
+- 作为属性名
+- 属性名的遍历（Object.getOwnPropertySymbols）
+- 全局共享的 Symbol Symbol.for()、Symbol.keyFor()4
+- 实例：单例模式
 
+## demo09 跨域
+主要解决方案有两种
+- h5的postMessage (双向通信)
+- jsonp （单向通信）主要用于拿数据
