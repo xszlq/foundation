@@ -8,9 +8,10 @@ React有虚拟Dom，而且采用了Diff算法，通过与上次的虚拟DOM比�
 ## React组件生命周期
 - componentWillMount （组件加载到真实Dom之前执行）
 - componentDidMount （组件加载到真实Dom后执行）
+- componentWillReceiveProps （组件接受新的参数时使用，没接收到新的参数也会执行）
+- shouldComponentUpdate (遇到性能问题时使用，返回false，组件就不会更新了)
 - componentWillUpdate （组件在运行时，加载到真实Dom之前执行）
 - componentDidUpdate （组件在运行时，加载到真实Dom后执行）
-- componentWillReceiveProps （组件接受新的参数时使用，没接收到新的参数也会执行）
 - componentWillUnmount （组件移除前执行）
 
 ## 组件通信

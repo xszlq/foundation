@@ -80,3 +80,10 @@ async的引入主要是为了异步操作更加方便。
 主要解决方案有两种
 - h5的postMessage (双向通信)
 - jsonp （单向通信）主要用于拿数据
+
+## demo10 事件
+- 事件的三个阶段
+- target和currentTarget的区别
+事件的三个阶段是：捕获、目标、冒泡；target和currentTarget在目标阶段是一样的，在捕获和冒泡阶段currentTarget指的是最近的父元素。
+
+
