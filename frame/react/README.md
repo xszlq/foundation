@@ -21,3 +21,6 @@ React有虚拟Dom，而且采用了Diff算法，通过与上次的虚拟DOM比�
 Redux使用起来比较繁杂，整个流程是，dispatch action-> reducer -> new State,redux 维护整个状态树。  
 Mobx可以理解为观察者模式的实现，组件是观察者，状态是被观察者。  
 项目中的实践，考虑到组件通信的实质是状态的同步，将组件和状态分离，每个组件维护自己的状态，而状态以模块的方式使用。
+
+## events
+React对原生的事件进行了封装，events这个目录是对React事件的学习和探索。

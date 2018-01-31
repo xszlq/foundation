@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    class EventTest extends React.Component{
+
+        render(){
+            return (
+                    <div>
+                        <button id="testBtn" onClick={()=>{console.log("btn click")}}>
+                            <span id="testSpan">span啦</span>
+                        </button>
+                    </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<EventTest/>, document.querySelector("#example"))
+</script>
+</body>
+</html>
