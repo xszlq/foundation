@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    const Stateless1 = (props)=>(
+            <div>{props.name}</div>
+    );
+
+    const fun1 = (age)=>(
+        <div>{age}</div>
+    );
+
+    class Test extends React.Component{
+
+        render(){
+            return (
+                    <div>
+                        <Stateless1 name={"xxx"}/>
+                        {fun1(23)}
+                    </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Test/>, document.querySelector("#example"))
+</script>
+</body>
+</html>
