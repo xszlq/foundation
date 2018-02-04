@@ -16,7 +16,14 @@ arr2[0].name = "z3";
 
 console.log(copy2[0].name); // z3
 
-// 数组的深拷贝 可以借助lodash的cloneDeep实现
+// 数组的深拷贝 可以借助lodash的cloneDeep实现 或者递归调用浅复制
 
+/**
+ * 数组去重
+ */
+function deleteRepeat(arr){
+    return arr.filter((item,index) => index === arr.indexOf(item))
+}
 
+console.log(deleteRepeat([1, 2,1,3,5,3])); // [1,2,3,5]
 
