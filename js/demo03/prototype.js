@@ -1,4 +1,5 @@
 function C(){
+    this.c ="c";
 }
 C.prototype = {
     getName: function () {
@@ -9,7 +10,10 @@ C.prototype = {
     }
 };
 
+C.prototype.constructor = C;
+
 function B(){
+    this.b = "b";
 }
 
 B.prototype = new C();
@@ -17,6 +21,8 @@ B.prototype = new C();
 B.prototype.getAge = function () {
     return this.age;
 };
+
+B.prototype.constructor = B;
 
 function A(){
 }
