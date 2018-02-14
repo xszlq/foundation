@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="../../lib/react.js"></script>
+    <script src="../../lib/react-dom.js"></script>
+    <script src="../../lib/jquery.js"></script>
+    <script src="../../lib/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+        class MyComponent extends React.Component{
+            state = {
+                num: 0
+            };
+
+            add = (e)=>{
+                // 下面的代码会打印0（第一次点击）
+               /*this.setState({num: 1});
+                console.log(this.state);
+              this.setState({num: 2});*/
+                /*this.setState((preState, props)=>{
+                    console.log(preState);
+                    return {num: ++preState.num}
+                });
+                this.setState((preState, props)=>{
+                    return {num: ++preState.num}
+                })*/
+
+                this.setStateAsync({num: ++this.state.num})
+                        .then(()=>{
+                            console.log(this.state);
+                            this.setStateAsync({num: ++this.state.num})
+                        })
+            };
+
+            // 将setState封装为一个Promise对象
+            setStateAsync(obj){
+                return new Promise((resolve)=>{
+                    this.setState(obj, resolve)
+                })
+            }
+
+            render(){
+                return (
+                        <div>
+                            <button onClick={this.add}>add</button>
+                        <p>{this.state.num}</p>
+                        </div>
+                )
+            }
+        }
+
+      ReactDOM.render(
+        <MyComponent/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
