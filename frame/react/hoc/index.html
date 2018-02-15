@@ -20,6 +20,7 @@
                         <button id="testBtn" onClick={()=>{console.log("btn click")}}>
                             <span id="testSpan">span啦</span>
                         </button>
+                            <p>{this.props.name}</p>
                     </div>
             )
         }
@@ -31,9 +32,10 @@
                 console.log("mount")
             }
             render(){
+                console.log(this.props);
                 return (
                                 <div>
-                        <Com />
+                        <Com {...this.props}/>
                         <p>wrap Component</p>
                         </div>
                 )
@@ -43,7 +45,7 @@
 
     let C1 = hoc(EventTest);
 
-    ReactDOM.render(<C1 />, document.querySelector("#example"))
+    ReactDOM.render(<C1 name="lqg"/>, document.querySelector("#example"))
 </script>
 </body>
 </html>
