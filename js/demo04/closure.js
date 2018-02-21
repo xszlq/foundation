@@ -27,3 +27,16 @@ var Counter = (function(){
         }
     }
 })();
+
+/*
+    输出0，1，2，3
+    其实用let更简单~
+ */
+for(var i=0; i<4; i++){
+    setTimeout((function(num){
+        return function(){
+            console.log(num)
+        }
+    })(i), 100)
+}
+

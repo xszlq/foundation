@@ -42,3 +42,4 @@ setState是异步的，官方文档的建议是通过生命周期函数component
 高阶组件主要的作用：
 - 操作props（增删改读props）
 - 提取state
+今天在阮一峰老师微博上看到可以用children可以替换hoc，空了对比一下两者的实现
