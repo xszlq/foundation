@@ -26,7 +26,7 @@ demo中主要写了一个常见使用，及用闭包模拟私有方法和变量�
 - 作用域
 - 从外部读取局域变量
 - 闭包的概念
-- 闭包的用途（私有变量、节流、防抖函数、React高阶组件）
+- 闭包的用途（私有变量、节流、防抖函数、React高阶组件、回掉函数）
 - 使用注意事项
 
 ## demo05 Array
@@ -36,7 +36,7 @@ demo中主要写了一个常见使用，及用闭包模拟私有方法和变量�
 遍历的方法： forEach、map、for of  
 不改原数组的方法：forEach、map、concat（合并数组，并返回一个新的数组）、slice（截取数组片段）、reduce、join、indexOf、sort  
 其中concat和slice可以实现数组的浅拷贝，深拷贝一般借助第三方库实现
-- 数组去重
+- 数组去重（Es5、ES6实现）
 ### Es6数组扩展(es6.js主要写展开运算符的运用)
 Es6 Array 原型上新增includes、find、findIndex、fill（会改变原数组）方法，Array对象上新增from（将一个类数组转换成一个数组）、of方法   
 扩展运算符
