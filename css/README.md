@@ -11,3 +11,6 @@ flex.html 采用的是flex布局，只需要设置容器节点display为flex，�
 ## demo03 常用布局
 grail.html 圣杯布局（两边固定，中间自适应）,主要运用float布局特性，占据margin位置实现
 flexGrail flex实现圣杯布局，flex项目设置order和flex值
+
+## css重排与重绘
+
