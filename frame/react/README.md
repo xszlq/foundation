@@ -33,7 +33,7 @@ React对原生的事件进行了封装，events这个目录是对React事件的�
 ```setState(updater[,callback])
 ```
 updater可以是一个函数，也可以是一个对象。  
-setState是异步的，官方文档的建议是通过生命周期函数componentDidMount,不过明显不好呀，例如某些场景才触发的，就要在该函数中做一些判断。  
+setState是异步的，官方文档的建议是通过生命周期函数componentDidUpdate,不过明显不好呀，例如某些场景才触发的，就要在该函数中做一些判断。  
 好的解决方案有三种，一种是采用回掉，一种是将updater传入函数，或者封装setState为一个Promise对象,结合async函数提高代码可读性
 
 ## 高阶组件
