@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../node_modules/lie/dist/lie.js"></script>
+</head>
+<body>
+<script>
+    console.log(Promise);
+    new Promise(resolve => {
+        console.log(1);
+    resolve(3);
+    Promise.resolve().then(()=> console.log(4))
+    }).then(num => {
+        console.log(num)
+    });
+    console.log(2);
+</script>
+</body>
+</html>
