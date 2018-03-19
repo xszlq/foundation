@@ -41,7 +41,10 @@
 - 也可以处理异步的节点
 
 ## 策略模式
+减少算法类和使用算法类间的耦合
 
+### 使用场景
+- 校验类
 
 [参考文档](https://juejin.im/entry/58c280b1da2f600d8725b887)
 [Es6设计模式实现](http://loredanacirstea.github.io/es6-design-patterns/#chain-of-responsibility)
