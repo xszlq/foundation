@@ -11,6 +11,10 @@
 - 保证只有一个实例
 - 在弹框中使用较多
 
+### 使用场景
+- 弹框
+- 只需要一个实例的时候
+
 ## 模块模式
 - 对模块的封装
 - 实现私有属性
@@ -36,4 +40,8 @@
 - 链中的节点可以灵活重组，增删，提高了代码的灵活性
 - 也可以处理异步的节点
 
+## 策略模式
+
+
 [参考文档](https://juejin.im/entry/58c280b1da2f600d8725b887)
+[Es6设计模式实现](http://loredanacirstea.github.io/es6-design-patterns/#chain-of-responsibility)
