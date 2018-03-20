@@ -45,6 +45,10 @@
 
 ### 使用场景
 - 校验类
+- 多if else的场景可以考虑使用
+
+## 中介模式
+
 
 [参考文档](https://juejin.im/entry/58c280b1da2f600d8725b887)
 [Es6设计模式实现](http://loredanacirstea.github.io/es6-design-patterns/#chain-of-responsibility)
