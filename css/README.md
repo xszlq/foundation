@@ -12,7 +12,7 @@ flex.html 采用的是flex布局，只需要设置容器节点display为flex，�
 grail.html 圣杯布局（两边固定，中间自适应）,主要运用float布局特性，占据margin位置实现
 flexGrail flex实现圣杯布局，flex项目设置order和flex值
 
-## css重排与重绘
+## 重排与重绘
 - 重绘是一个元素的外观变化所引起的浏览器行为（常见的就是改变某个元素的css改变引起其他元素的位置样式改变）
 - 重排是指DOM树重新计算的行为（例如插入DOM）
 
