@@ -53,7 +53,7 @@ const BasicExample = () => (
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/topics">Topics</Link></li>
-                <li><Link to="/redux-async">redux-async</Link></li>
+                <li><Link to="/redux-async">reduxAsync</Link></li>
             </ul>
 
             <hr/>
