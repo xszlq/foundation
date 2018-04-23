@@ -12,9 +12,14 @@
 <body>
 <div id="example"></div>
 <script type="text/babel">
-    const Stateless1 = (props)=>(
-            <div>{props.name}</div>
-    );
+    const Stateless1 = ({name})=> {
+        console.log(this);
+        return (
+            <div>{name}</div>
+        );
+
+    }
+
 
     const fun1 = (age)=>(
         <div>{age}</div>
