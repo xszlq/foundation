@@ -69,3 +69,38 @@ applyMiddlewareByMonkeypatching(store, [ logger ])；
 上面的代码有多个需求时能同时生效？比如能同时打印日志和异常监控？？我的理解store.dispatch最终只能赋一个值吧？so，为啥要改写dispatch函数呢？
 
 ### 移除 Monkeypatching
+利用闭包的特性，缓存dispatch函数到内存中
+```
+function logger(store) {
+  // 这里的 next 必须指向前一个 middleware 返回的函数：
+  let next = store.dispatch
+
+  return function dispatchAndLog(action) {
+    console.log('dispatching', action)
+    let result = next(action)
+    console.log('next state', store.getState())
+    return result
+  }
+}
+// 再缓存一个next（dispatch） 并箭头函数优化一下
+const logger = store => next => action => {
+  console.log('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  return result
+}
+
+// middleware 函数实现
+function applyMiddleware(store, middlewares) {
+  middlewares = middlewares.slice()
+  middlewares.reverse()
+
+  let dispatch = store.dispatch
+  middlewares.forEach(middleware =>
+    dispatch = middleware(store)(dispatch)
+  )
+
+  return Object.assign({}, store, { dispatch })
+}
+
+```
