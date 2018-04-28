@@ -21,6 +21,7 @@
                             <span id="testSpan">span啦</span>
                         </button>
                             <p>{this.props.name}</p>
+                        <p>{this.props.age}</p>
                     </div>
             )
         }
@@ -34,10 +35,13 @@
             render(){
                 console.log(this.props);
                 return (
-                                <div>
-                        <Com {...this.props}/>
+                    <div>
+                        <Com
+                            age={23}
+                            {...this.props}
+                        />
                         <p>wrap Component</p>
-                        </div>
+                    </div>
                 )
             }
         }
@@ -46,6 +50,8 @@
     let C1 = hoc(EventTest);
 
     ReactDOM.render(<C1 name="lqg"/>, document.querySelector("#example"))
+
+    // 该demo就改变了原组件的props（当然删除和修改props也是修改的） 并且可以在原组件的基础上加一些其他组件。
 </script>
 </body>
 </html>

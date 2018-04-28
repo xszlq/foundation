@@ -16,18 +16,18 @@
 
         render(){
             return (
-                    <div>
+                <div>
                     <button id="testBtn" onClick={()=>{console.log("btn click")}}>
-        <span id="testSpan">span啦</span>
+                        <span id="testSpan">span啦</span>
                     </button>
-            {this.props.children("lqg")}
-            </div>
+                    {this.props.children("lqg")}
+                </div>
         )
         }
     }
 
 
-    ReactDOM.render(<EventTest >{(name)=><p>{name}</p>}</EventTest>, document.querySelector("#example"))
+    ReactDOM.render(<EventTest >{ name => <p>{name}</p>}</EventTest>, document.querySelector("#example"))
 </script>
 </body>
 </html>
