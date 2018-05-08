@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <script src="../../lib/react.js"></script>
+    <script src="../../lib/react-dom.js"></script>
+    <script src="../../lib/jquery.js"></script>
+    <script src="../../lib/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    class EventTest extends React.Component{
+
+        mockDP(){
+
+            const defaultProps = {
+                age: '99',
+                name: 'xxx',
+                h: "180"
+            };
+
+            let props = this.props;
+
+            Object.keys(defaultProps).forEach(key=>{
+                if(props[key] !== null && !props[key] ){
+                    console.log(key);
+                    this.props = {...this.props, [key]: defaultProps[key]}
+                }
+            })
+
+            console.log(this.props);
+        }
+
+        componentDidUpdate(){
+            console.log(this.props);
+        }
+
+        render(){
+            this.mockDP();
+            return (
+                    <div>
+                        <button id="testBtn" onClick={()=>{console.log("btn click")}}>
+                            <span id="testSpan">span啦</span>
+                        </button>
+                            <p>{this.props.name}</p>
+                        <p>{this.props.h}</p>
+                        <p>{this.props.age}</p>
+                    </div>
+            )
+        }
+    }
+
+
+    class ParentComopent extends React.Component{
+        state = {
+            name: "lqg"
+        };
+
+        handleClick = (e)=>{
+            this.setState({
+                age: 23,
+                name: undefined
+            })
+        };
+
+        render(){
+            return (
+                <div>
+                    <EventTest {...this.state}/>
+                    <button onClick={this.handleClick}>changeProps</button>
+                </div>
+            )
+        }
+    }
+
+
+
+    ReactDOM.render(<ParentComopent />, document.querySelector("#example"))
+
+
+</script>
+</body>
+</html>
