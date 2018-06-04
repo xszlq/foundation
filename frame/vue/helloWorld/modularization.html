@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化开发vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <App>
+        <div>xxxx</div>
+
+    </App>
+</div>
+
+
+<script>
+    var app = new Vue({
+        el: '.app',
+        data: {
+            groceryList: [
+                { id: 0, text: '蔬菜' },
+                { id: 1, text: '奶酪' },
+                { id: 2, text: '随便其它什么人吃的东西' }
+            ]
+        }
+    })
+    // 定义app组件
+    Vue.component('App', {
+        template:'<div><slot></slot></div>',
+        components:{
+            app2:app2
+        }
+    })
+</script>
+</body>
+</html>
