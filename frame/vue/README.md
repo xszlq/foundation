@@ -35,3 +35,56 @@ var vm = new Vue({
 
 ### 模板语法
 
+
+### 组件基础
+#### 基本示例
+```
+// 一个简单的counter组件，值得注意的是组件的data必须传函数类型，传入obj类型程序也不会报错也是尴尬。。。官方的解释是不然组件实例的数据会相互影响
+Vue.component('Counter', {
+    data: function(){
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">clicked count times</button>'
+})
+```
+
+#### 组件的复用
+- 组件可以多次使用
+
+#### 通过props向子组件传递数据
+
+### 深入了解组件
+#### 组件注册
+1. 组件名
+    一种是kabab-case(短横线分割命名)，一种是PascalCase（驼峰式命名），不过在DOM中只有kabab-case是生效的。
+2. 全局注册
+```
+Vue.component('my-component1', {
+    ...
+})
+```
+3. 局部注册
+```
+// 通过一个普通的js对象来定义组件
+var ComponentA = { /* ... */};
+// 然后在component是选项中定义你想要使用的组件
+new Vue({
+  el: '#app'
+  components: {
+    'component-a': ComponentA,
+  }
+})
+```
+注意局部注册的组件在其子组件中不可用。例如，如果你希望 ComponentA 在 ComponentB 中可用，则你需要这样写：
+```
+var ComponentA = { /* ... */ }
+
+var ComponentB = {
+  components: {
+    'component-a': ComponentA
+  },
+  // ...
+}
+```
