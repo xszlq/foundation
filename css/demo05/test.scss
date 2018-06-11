@@ -1,0 +1,16 @@
+//变量
+$red : red;
+
+.red{
+  color: $red;
+  width: 200px;
+  height: 200px;
+
+  &:hover{
+    color:blue;
+  }
+
+  &-a1{
+    color:yellow;
+  }
+}

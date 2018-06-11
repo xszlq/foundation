@@ -34,4 +34,13 @@ flexGrail flex实现圣杯布局，flex项目设置order和flex值
 - 正常文档流和特殊文档流
 - 浮动元素后跟block元素&浮动元素后跟inline元素对布局的影响
 
+## demo05 sass的基本用法
+列举一下常用的特性
+- 变量
+- 函数
+- 计算
+- 嵌套
+- 继承
+- Mixin
+
 [参考文档](http://www.dailichun.com/2018/03/12/whenyouenteraurl.html)
