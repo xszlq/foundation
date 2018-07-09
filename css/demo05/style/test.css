@@ -1,0 +1,13 @@
+.red {
+  color: red;
+  width: 200px;
+  height: 200px; }
+  .red:hover {
+    color: blue; }
+  .red-a1 {
+    color: yellow; }
+
+.test {
+  width: 100%; }
+
+/*# sourceMappingURL=test.css.map */
