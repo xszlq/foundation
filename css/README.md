@@ -44,6 +44,8 @@ flexGrail flex实现圣杯布局，flex项目设置order和flex值
 - Mixin
 
 ## demo06 rem布局
+- rem与em的区别
+-
 
 
 [参考文档](http://www.dailichun.com/2018/03/12/whenyouenteraurl.html)
