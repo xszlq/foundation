@@ -110,4 +110,11 @@ get请求和post请求本质是一样的，都是XMLHttpRequest的实现。
 - 504 GateWay Timeout 超时
 [参考文章](https://juejin.im/post/5a757d2f5188254e5c6c404a)
 
+## js中的内存机制
+- js中的堆、栈内存
+- 内存的生命周期
+- js的垃圾回收算法（引用计数（IE）、标记清除）
+- 内存泄漏
+
+[参考文章](https://mp.weixin.qq.com/s/op26GEKXEN-yI3IpA9tZQg)
 
