@@ -79,7 +79,7 @@ new Vue({
 ```
 注意局部注册的组件在其子组件中不可用。例如，如果你希望 ComponentA 在 ComponentB 中可用，则你需要这样写：
 ```
-var ComponentA = { /* ... */ }
+var ComponentA = {  }
 
 var ComponentB = {
   components: {
