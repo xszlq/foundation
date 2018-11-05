@@ -61,6 +61,9 @@ MVC、MVVM是比较热门的前端框架，之所以为框架，而不是类库�
 #### mvc2.html
 这个demo[参照](https://stackoverflow.com/questions/8497833/hello-world-in-mvc-pattern)，这个demo c起的作用并不大
 
+### MVVM
+主要有M、V、VM三个部分组成，vue的实现比较有代表性。[参考](https://segmentfault.com/a/1190000015807808)
+
 
 
 
