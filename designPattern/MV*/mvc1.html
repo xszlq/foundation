@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div bind="div1"></div>
+<div bind="div2"></div>
+
+<span bind="hour"></span> : <span bind="minute"></span> : <span bind="second"></span>
+
+<script>
+    /*
+        简单的Model，只设置一个值
+     */
+    class Model{
+        constructor(v){
+            this.v = v === undefined ? "" : v;
+            this.listeners = [];
+        }
+
+        setV(v){
+            this.v = v;
+
+            this.listeners.forEach(i => {
+                i(v);
+            })
+        }
+
+        getV(){
+            return this.v;
+        }
+
+        watch(listener){
+            this.listeners.push(listener);
+        }
+
+        addListener(...nodes){
+            nodes.forEach((node)=>{
+                this.watch((v)=>{
+                    node.innerHTML = v;
+                })
+            })
+        }
+    }
+</script>
+
+<script>
+    class Controller{
+        constructor(){
+            this.init();
+        }
+
+        init(){
+            this.models = {};
+            this.views = Array.from(document.querySelectorAll("[bind]"));
+
+            const models = this.models;
+
+            this.views.forEach(view =>{
+                let modelName = view.getAttribute('bind');
+                models[modelName] = models[modelName] || new Model();
+                models[modelName].addListener(view);
+            })
+        }
+
+        setByBind(name, value){
+            this.models[name].setV(value)
+        }
+    }
+
+</script>
+
+<script>
+    window.onload = function(){
+
+        const controller = new Controller();
+        controller.setByBind('div1', 'set div1 lalala');
+
+        function setTime(){
+            const date = new Date();
+            controller.setByBind("hour", date.getHours());
+            controller.setByBind("minute", date.getMinutes());
+            controller.setByBind("second", date.getSeconds());
+        }
+
+        setTime();
+        setInterval(setTime, 1000);
+    }
+</script>
+
+</body>
+</html>

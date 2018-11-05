@@ -50,6 +50,18 @@
 - 校验类
 - 多if else的场景可以考虑使用
 
+## MV*
+MVC、MVVM是比较热门的前端框架，之所以为框架，而不是类库（jQuery）或者工具集（Lodash/Underscore）,就是因为他们背后有着众多优秀的设计理念和最佳实践。
+### MVC
+主要需要实现基础类Model、View、Controller。通信是单向的，model->view->controller->model 不过实际项目中一般不是这样的，例如backbone就是v-m的双向通信，取消了c。
+
+#### mvc1.html
+这个demo[参照](http://web.jobbole.com/85108/),该实现基于观察者模式，不过个人觉得model不纯净，在set model的时候要通知所有观察者，而且把业务代码也封装到model中了。
+
+#### mvc2.html
+这个demo[参照](https://stackoverflow.com/questions/8497833/hello-world-in-mvc-pattern)，这个demo c起的作用并不大
+
+
 
 
 [参考文档](https://juejin.im/entry/58c280b1da2f600d8725b887)

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input id="name">
+    <input id="num">
+    <button id="submit">提交</button>
+
+
+<script>
+    const model = {
+        data:{
+            name: 'lq',
+            num: 123
+        },
+        set(obj){
+            Object.assign(this.data, obj);
+        },
+        get(){
+            return this.data;
+        }
+    };
+
+    const view = {
+        getName(){
+            return document.querySelector("#name")
+        },
+        getNum(){
+            return document.querySelector("#num");
+        },
+
+        render(model){
+            this.getName().value = model.data.name;
+            this.getNum().value = model.data.num;
+        },
+        // 同步model
+        syncModel(model){
+            model.set({
+                name: this.getName().value,
+                num: this.getNum().value
+            })
+        }
+    };
+
+    const controller = {
+        model: model,
+        view: view,
+        modelView: function(){
+            this.view.render(this.model);
+        },
+        viewModel: function(){
+            this.view.syncModel(this.model);
+        }
+    }
+</script>
+
+<script>
+    window.onload = function(){
+        controller.modelView();
+
+        document.querySelector("#submit").addEventListener('click', (e)=>{
+            controller.viewModel();
+            console.log(model);
+        })
+    };
+
+</script>
+
+</body>
+</html>
