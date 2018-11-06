@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<input id="input1"/>
+<p>输入的名称是：<span id="display"></span></p>
+
+<script>
+    var model = {
+        name: "lqg"
+    };
+
+    Object.defineProperty(model, 'name', {
+        set(val){
+            document.querySelector("#input1").value = val;
+            document.querySelector("#display").innerHTML = val;
+        },
+        get(){
+
+        }
+    });
+
+    window.onload = function(){
+       document.querySelector("#input1").addEventListener('input', (e)=>{
+           model.name = e.target.value;
+       })
+    }
+
+</script>
+
+</body>
+</html>
