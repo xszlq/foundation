@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>history</title>
+</head>
+<body>
+<div>
+    <a href="/" class="history-link">白色</a><br>
+    <a href="/green" class="history-link">绿色</a><br>
+    <a href="/yellow" class="history-link">黄色</a>
+</div>
+
+<script>
+    class Router{
+        constructor(){
+            this.routes = {};
+            this.currentRoute = "";
+        }
+
+        init(){
+            window.addEventListener("popstate", (e)=>{
+                console.log('......', e);
+                this.currentRoute = history.state.truePath.split('.html')[1];
+                console.log(this.currentRoute);
+                this.refresh(this.currentRoute)
+            })
+        }
+
+        addRoute(path, cb){
+            this.routes[path] = ()=>{
+                const truePath = location.pathname.split(".html")[0] + '.html' + path;
+
+                history.pushState({truePath}, '', truePath);
+                cb && cb();
+            };
+        }
+
+        refresh(path, type){
+            console.log(path, this.routes);
+            this.currentRoute = path;
+            this.routes[path]();
+        }
+    }
+
+    const green = 'green';
+    const yellow = 'yellow';
+
+    function changeColor(color){
+        document.querySelector("body").style.backgroundColor = color;
+    }
+
+    const route = new Router();
+
+    route.addRoute('/', function(){
+        changeColor('white')
+    });
+
+    route.addRoute('/' + green, ()=>{
+        changeColor(green)
+    });
+
+    route.addRoute('/' + yellow, ()=>{
+        changeColor(yellow)
+    });
+
+    route.init();
+
+    window.onload = function(){
+        const divs = Array.from(document.querySelectorAll('.history-link'));
+
+        for(let div of divs){
+            div.onclick = function(e){
+                e.preventDefault();
+                const url =  e.target.getAttribute('href');
+
+                route.refresh(url);
+            }
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

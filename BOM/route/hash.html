@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOM Hash</title>
+
+</head>
+<body>
+<ul>
+    <li><a href="#/">home</a></li>
+    <li><a href="#green">to green</a></li>
+    <li><a href="#yellow">to yellow</a></li>
+</ul>
+
+<script>
+    class Route{
+        constructor(){
+            this.routes = {};
+            this.currentUrl = "";
+        }
+
+        init(){
+            window.addEventListener('hashchange', (e)=>{
+                this.refresh();
+            })
+        }
+
+        addRoute(path, cb){
+            this.routes[path] = cb || function(){}
+        }
+
+        refresh(){
+            this.currentUrl = location.hash.slice(1) || "/";
+            console.log(this.currentUrl, this.routes);
+            this.routes[this.currentUrl]();
+        }
+    }
+
+    const green = 'green';
+    const yellow = 'yellow';
+
+    function changeColor(color){
+        document.querySelector("body").style.backgroundColor = color;
+    }
+
+    var route = new Route();
+
+    route.addRoute("/", ()=>{
+        changeColor("white")
+    });
+
+    route.addRoute(yellow, ()=>{
+        changeColor(yellow)
+    });
+
+    route.addRoute(green, ()=>{
+        changeColor(green);
+    });
+
+    route.init();
+</script>
+
+</body>
+</html>
