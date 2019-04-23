@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="components-demo">
+    <button-counter v-on:doadd="add"></button-counter>
+    <button-counter v-on:doadd="add"></button-counter>
+    <button-counter v-on:doadd="add"></button-counter>
+    <p>总共点了{{num}}次</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+
+  Vue.component('button-counter', {
+    data: function () {
+      return {
+        count: 0
+      }
+    },
+    template: '<button v-on:click="add">You clicked me {{ count }} times.</button>',
+    methods: {
+      add: function(){
+        this.count++;
+        this.$emit('doadd', 1);
+      }
+    }
+  });
+
+  new Vue({
+    el: '#components-demo',
+    data: function () {
+      return {
+        num: 0
+      }
+    },
+    methods: {
+      add: function(addNum){
+        console.log(addNum);
+        this.num+=addNum;
+      }
+    }
+  });
+</script>
+</body>
+</html>
