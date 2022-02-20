@@ -10,3 +10,5 @@ js、css、html、常用框架及UI组件基础知识，并写写对应的demo
 
 ### js
 - promise、promise.all实现（promise.js） 基于callback实现
+- 实现一个repeat方法，输入方法、次数、间隔时间
+- sum函数
