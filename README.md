@@ -13,3 +13,6 @@ js、css、html、常用框架及UI组件基础知识，并写写对应的demo
 - 实现一个repeat方法，输入方法、次数、间隔时间
 - sum函数
 - 版本号排序函数 versionSort
+- 真实dom转成虚拟dom genVirtualDom
+- 将 153812.7 转化为 153,812.7 numberFormat
+- 实现一个 setter 方法
