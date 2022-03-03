@@ -17,3 +17,4 @@ js、css、html、常用框架及UI组件基础知识，并写写对应的demo
 - 将 153812.7 转化为 153,812.7 numberFormat
 - 实现一个 setter 方法
 - diff算法实现 diff
+- 实现 bind 方法. myBind 注意参数处理
