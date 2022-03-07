@@ -6,6 +6,12 @@
  const k = sum(n1)...(nk) // k === n1 + n2 + ... + nk
  * */
 
-function sum(){
-
+function sum(num){
+    if(!sum.result) sum.result = 0;
+    sum.result += num;
+    return sum;
 }
+
+
+console.log(sum(0).result)
+console.log(sum(1)(2).result)
