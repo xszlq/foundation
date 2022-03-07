@@ -16,3 +16,4 @@ js、css、html、常用框架及UI组件基础知识，并写写对应的demo
 - 真实dom转成虚拟dom genVirtualDom
 - 将 153812.7 转化为 153,812.7 numberFormat
 - 实现一个 setter 方法
+- 请实现一个 flattenDeep 函数，把嵌套的数组扁平化
