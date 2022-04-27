@@ -1,0 +1,74 @@
+
+// 源码实现
+function createInstance(defaultConfig) {
+    var context = new Axios(defaultConfig);
+}
+
+function Axios(instanceConfig) {
+    this.defaults = instanceConfig;
+    this.interceptors = {
+      request: new InterceptorManager(),
+      response: new InterceptorManager()
+    };
+  }
+
+
+  Axios.prototype.request = function request(configOrUrl, config) {
+    var promise;
+    try {
+        promise = dispatchRequest(newConfig);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+  };
+
+  function dispatchRequest(){
+
+    // adapter实现就是兼容浏览器端和nodejs服务端
+    return adapter(config).then(function onAdapterResolution(response) {
+        throwIfCancellationRequested(config);
+    
+        // Transform response data
+        response.data = transformData.call(
+          config,
+          response.data,
+          response.headers,
+          config.transformResponse
+        );
+    
+        return response;
+      }, function onAdapterRejection(reason) {
+        if (!isCancel(reason)) {
+          throwIfCancellationRequested(config);
+    
+          // Transform response data
+          if (reason && reason.response) {
+            reason.response.data = transformData.call(
+              config,
+              reason.response.data,
+              reason.response.headers,
+              config.transformResponse
+            );
+          }
+        }
+    
+        return Promise.reject(reason);
+      });
+  }
+
+
+  // 封装 拦截器 核心还是存储拦截方法
+  function InterceptorManager() {
+    this.handlers = [];
+  }
+
+
+  InterceptorManager.prototype.use = function use(fulfilled, rejected, options) {
+    this.handlers.push({
+      fulfilled: fulfilled,
+      rejected: rejected,
+      synchronous: options ? options.synchronous : false,
+      runWhen: options ? options.runWhen : null
+    });
+    return this.handlers.length - 1;
+  };

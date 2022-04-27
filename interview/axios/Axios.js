@@ -34,21 +34,8 @@ axios.interceptors.response.use(function (response) {
   });
  */
 
-function Interceptor(){
-    this.request = {
-        use(fn){
-
-        }
-    };
-    this.response = {
-        use(fn){
-
-        }
-    };
-}
-
 function Axios(){
-    this.interceptors = new Interceptors();
+    
 }
 
 Axios.prototype.request = function(config){
@@ -58,6 +45,10 @@ Axios.prototype.request = function(config){
         let xhr = new XMLHttpRequest();
 
         xhr.open(method, url);
+
+        if(requestQueues.length){
+            requestQueues.forEach(fn=>fn())
+        }
     
         xhr.onload = function(){
             resovle(xhr.responseText);
@@ -90,3 +81,21 @@ let axios = (function(){
         return ins.request(config)
     }
 })()
+
+let requestQueues = [];
+let reponseQueues = [];
+
+axios.interceptor = {
+    requset(fn){
+        if(fn){
+            requestQueues.push(fn); 
+        }
+    },
+    response(fn){
+        if(fn){
+            reponseQueues.push(fn);
+        }
+    }
+}
+
+
