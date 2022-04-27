@@ -22,3 +22,7 @@ js、css、html、常用框架及UI组件基础知识，并写写对应的demo
 - 实现 bind 方法. myBind 注意参数处理
 
 ### ts
+
+### openSource
+开源项目使用
+ - gogocode 好用的ast分析及修改库，比babel插件好用太多
