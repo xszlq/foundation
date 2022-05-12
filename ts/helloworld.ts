@@ -54,6 +54,18 @@ function identity<T>(arg: T): T {
 
 let myIdentity: <T>(arg: T) => T = identity;
 
+// 泛型接口
+interface InterfaceTest{
+    <T>(arg: T): T
+}
+
+interface InterfaceTest2<T>{
+    (arg: T): T
+}
+
+let ift1: InterfaceTest = identity;
+
+let ift2: InterfaceTest2<string> = identity;
 interface GenericIdentityFn{
     <T>(arg: T): T
 }
