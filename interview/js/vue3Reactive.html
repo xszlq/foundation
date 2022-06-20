@@ -10,45 +10,105 @@
     <div id="app"></div>
     <button id="btn">戳一戳</button>
     <script>
-      let listeners = {};
-      function track(target, property) {
-        listeners.property = runningEffect[0];
-      }
+      /*
+       实现vue3副作用函数 effect 和computed
+       */
 
-      function trigger(target, property) {
-        if (listeners[property]) {
-          listeners[property]();
+      const effectStack = [];
+      let targetMap = new WeakMap();
+      function track(target, property) {
+        const effect = effectStack[effectStack.length - 1];
+
+        if (!effect) return;
+
+        let depMap = targetMap.get(target);
+        // 新target
+        if (!depMap) {
+          depMap = new Map();
+
+          targetMap.set(target, depMap);
+        }
+
+        let dep = depMap.get(property);
+
+        if (!dep) {
+          dep = new Set();
+          depMap.set(property, dep);
+        }
+
+        // 去重
+        if (!dep.has(effect)) {
+          dep.add(effect);
+          effect.deps.push(dep);
         }
       }
 
-      function reactive(obj) {
-        new Proxy(obj, {
+      function trigger(target, property) {
+        // 找到对应effect函数，执行对应的deps
+        const depMap = targetMap.get(target);
+
+        if (depMap) {
+          const dep = depMap.get(property);
+
+          if (dep) {
+            dep.forEach((i) => {
+              i();
+            });
+          }
+        }
+      }
+
+      function computed(fn) {}
+
+      function reactive(target) {
+        return new Proxy(target, {
           get(target, property) {
+            const res = Reflect.get(target, property);
             track(target, property);
-            return Reflect.get(...arguments);
+            // 处理对象的场景
+            return typeof res === "object" ? reactive(target) : res;
           },
-          set(target, property) {
-            trigger(target, property);
-            return Reflect.set(...arguments);
+          set(target, property, val) {
+            const info = { oldVal: target[property], newVal: val };
+            Reflect.set(target, property, val);
+            trigger(target, property, info);
           },
         });
       }
 
-      const runningEffect = [];
-      function computed(fn) {
-        let res;
-        const effect = function () {
-          runningEffect.push(fn);
-          res = fn();
-          runningEffect.pop();
-        };
+      function effect(fn, options = {}) {
+        // 装饰fn
+        let e = createReactiveEffect(fn, options);
 
-        effect();
-        return res;
+        if (!e.lazy) {
+          e();
+        }
+
+        return e;
       }
 
-      function effect(fn) {
-        fn();
+      function createReactiveEffect(fn, options = {}) {
+        const effect = (...arg) => {
+          return run(effect, fn, arg);
+        };
+
+        effect.deps = [];
+        effect.computed = options.computed;
+        effect.lazy = options.lazy;
+
+        return effect;
+      }
+
+      function run(effect, fn, args) {
+        // effect stack 中不存在该effect
+        if (effectStack.indexOf(effect) === -1) {
+          try {
+            effectStack.push(effect);
+            return fn(...args);
+          } finally {
+            effectStack.pop();
+          }
+        }
       }
     </script>
     <script>
@@ -64,7 +124,7 @@
         console.log("update");
         // 数据变了，响应式执行以下代码 fn
         // fn会包装一层格式，方便判断computed, effect
-        root.innerHTML = `<h1>${obj.name}今年${obj.age}岁了，乘以2是${double.value}</h1>`;
+        root.innerHTML = `<h1>${obj.name}今年${obj.age}岁了，乘以2是</h1>`;
       });
       btn.addEventListener(
         "click",
