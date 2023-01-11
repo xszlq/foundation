@@ -27,6 +27,7 @@ js、css、html、常用框架及 UI 组件基础知识，并写写对应的 dem
 - 实现 bind 方法. myBind 注意参数处理
 - 实现 map 函数 类似 Array.map 方法，入参为对象实例
 - 简单实现 vue3 响应式 实现参考：https://github.com/lihel/proxy-demo/blob/master/index.html
+- 柯里化函数
 
 ### ts
 
